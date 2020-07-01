@@ -24,13 +24,33 @@
 
       <!-- Searchbar - inizio -->
       <div class="search-bar">               
-        <input class="search-inputbox" type="text" placeholder="Search...">
+        <input class="search-inputbox" id="search-text" type="text" placeholder="Search...">
         <button class="search-btn">Invia</button>                                                   
       </div>
       <!-- Searchbar - fine -->
 
+
+      <!-- Lista film - inizio -->
+      <ul id="movie-list">
+        <li class="movie-item">
+        </li>
+      </ul>
+      <!-- Lista film - fine -->
+
     </div>
     <!-- Wrapper app Boolflix - fine -->
+
+
+    <!-- Handlebars Template -->
+    <script id="movie-template" type="text/x-handlebars-template">
+      <li class="movie-item">
+        <h3>Titolo: </h3><span>{{ titolo }}</span>
+        <h3>Titolo Originale: </h3><span>{{ titolo-originale }}</span>
+        <h3>Lingua: </h3><span>{{ lingua-originale }}</span>
+        <h3>Voto: </h3><span>{{ voto }}</span>
+      </li>
+    </script>
+    
 
     <script type="text/javascript" src="js/script.js"></script>
 
