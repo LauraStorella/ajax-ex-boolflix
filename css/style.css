@@ -1,0 +1,139 @@
+/* DEBUGG - start rules*/
+/* debug {}
+  .debug .container {
+    background-color: #16D893;
+    border: 1px solid blue;
+  }
+  .debug [class*="col-"] {
+    background-color: yellow;
+    border: 1px solid red;
+    height: 100px;
+  } */
+/* DEBUGG - end rules */
+
+/* PALETTE */
+/* body {
+  background-color: #272a2f;
+  background-color: #333941;
+  background-color: #3f4752;
+  background-color: #7c7d82;
+  background-color: #4d5967;
+  background-color: #c7cacf;
+  background-color: #7bc876;
+  background-color: #6ba569;
+  background-color: #5d8864;
+  background-color: #07aaf5;
+  background-color: #2c4d60;
+  background-color: #d4d4d5;
+  background-color: #35363b;
+  background-color: #27292e;
+} */
+
+/* GENERAL RULES (reset) - start */
+general rules {}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+  }
+  body div, span, ul, a {
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  img {
+    width: 100%;
+  }
+/* GENERAL RULES (reset) - end */
+
+
+
+/* CLASS PROPERTIES - start rules */
+class_properties {}
+  .float {
+    float: left;
+  }
+  .clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .transform {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .text-bold {
+    font-weight: 700;
+  }
+  ul.list-unstyled {
+    padding-left: 0;
+    }
+    ul.list-unstyled li {
+      display: inline-block;
+      list-style: none;
+    }
+    ul.list-unstyled li a {
+      text-decoration: none;
+    }
+/* CLASS PROPERTIES - end rules */
+
+
+
+/* BASE LAYOUT - inizio */
+regole layout {}
+/* BASE LAYOUT - fine */
+
+
+
+/* COMPONENTS (reusable) - start rules */
+components {}
+  components
+/* COMPONENTS (reusable) - end rules */
+
+
+
+/* NAVBAR - start rules */
+nav {}
+  nav {}
+/* NAVBAR - end rules */
+
+
+/* HEADER - start rules */
+header {}
+  header {}
+/* HEADER - end rules */
+
+
+/* MAIN - start rules */
+main {}
+  main {}
+/* MAIN - end rules */
+
+
+/* FOOTER - start rules */
+footer {}
+  footer {}
+/* FOOTER - end rules */
+
+
+
+/* MEDIA QUERY -start rules */
+@media query {}
+  /* Media Query - xs  */
+  @media all and (max-width: 767px) {}
+
+  /* Media Query - sm  */
+  @media all and (min-width: 768px) and (max-width: 991px) {}
+
+  /* Media Query - md  */
+  @media all and (min-width: 992px) and (max-width: 1199px) {}
+
+  /* Media Query - lg  */
+  @media all and (min-width: 1200px) {}
+/* MEDIA QUERY -end rules */
