@@ -32,8 +32,9 @@ $(document).ready(function () {
   
   // -------------------- FUNCTIONs --------------------
   
-  // Fun printMovies : si avvia al click del tasto "Cerca" e restituisce i film cercati dall'utente
   function printMovies(arrayMovies) {
+    // DESCRIZIONE : 
+    // si avvia al click del tasto "Cerca" e restituisce i film cercati dall'utente
   
     // leggo il testo inserito dall'utente nella searchbar
     var userText = $('#search-text').val().trim().toLowerCase();
@@ -43,8 +44,11 @@ $(document).ready(function () {
     //  ---> se dato > 1, resetto campo per nuova ricerca e faccio chiamata ajax
     //  ---> in caso contrario, compare alert 
     if (userText.length > 1) {
-      // reset searchbar per immissione nuova ricerca
+      // reset searchbar per immissione nuova ricerca (inserisco stringa vuota)
       $('#search-text').val('');
+
+      // elimino schede film sulla pagina HTML
+      $('.movie-item').empty();
 
       // faccio partire la chiamata ajax per cercare i film
       $.ajax({
@@ -77,6 +81,9 @@ $(document).ready(function () {
             var html = template(context);
             $('#movie-list').append(html);
           } // For loop
+
+          // // elimino risultati da pagina html
+          // $('li').empty();
           
         },
         'error': function() {
