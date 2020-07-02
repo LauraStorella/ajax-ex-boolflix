@@ -22,7 +22,9 @@ $(document).ready(function () {
   
   
   // Intercetto click su tasto invio (.search-btn)
-  $('.search-btn').click( printMovies );
+  //  ---> Al click di .search-btn, faccio ricerca e stampa dei risultati
+  //  ---> fun getMovies contiene anche fun printMovies
+  $('.search-btn').click( getMovies );
   
   
   
@@ -32,7 +34,7 @@ $(document).ready(function () {
   
   // -------------------- FUNCTIONs --------------------
   
-  function printMovies(arrayMovies) {
+  function getMovies(userText) {
     // DESCRIZIONE : 
     // si avvia al click del tasto "Cerca" e restituisce i film cercati dall'utente
   
@@ -48,7 +50,7 @@ $(document).ready(function () {
       $('#search-text').val('');
 
       // elimino schede film sulla pagina HTML
-      $('.movie-item').empty();
+      $('.movie-item').remove();
 
       // faccio partire la chiamata ajax per cercare i film
       $.ajax({
@@ -60,30 +62,31 @@ $(document).ready(function () {
             'language': 'it-IT'
         },
         'success': function(data) {
-          var arrayMovies = data.results;
-          console.log(arrayMovies);
-    
-          // creo ciclo For per stampare tutti i film in array
-          for (var i = 0; i < arrayMovies.length; i++) {
-            var singleMovie = arrayMovies[i];
-    
-            // recupero info film e inserisco in html (stampo con handlebars)
-            var context = {
-              'titolo': singleMovie.title,
-              'titolo-originale': singleMovie.original_title,
-              'lingua-originale': singleMovie.original_language,
-              'voto': singleMovie.vote_average,
-            };
-    
-            // appendo elemento in html 
-            var source = $('#movie-template').html();
-            var template = Handlebars.compile(source);
-            var html = template(context);
-            $('#movie-list').append(html);
-          } // For loop
+          var results = data. results;
+          console.log(results);
+          printMovies(data.results);
 
-          // // elimino risultati da pagina html
-          // $('li').empty();
+
+          // --------- 1° prova con 'stampa film' in fun 'getMovies' ---------
+          // --------- Refactoring con fun apposita 'printMovies' per separare ruoli --------- 
+          // // creo ciclo For per stampare tutti i film in array
+          // for (var i = 0; i < arrayMovies.length; i++) {
+          //   var singleMovie = arrayMovies[i];
+    
+          //   // recupero info film e inserisco in html (stampo con handlebars)
+          //   var context = {
+          //     'titolo': singleMovie.title,
+          //     'titolo-originale': singleMovie.original_title,
+          //     'lingua-originale': singleMovie.original_language,
+          //     'voto': singleMovie.vote_average,
+          //   };
+    
+          //   // appendo elemento in html 
+          //   var source = $('#movie-template').html();
+          //   var template = Handlebars.compile(source);
+          //   var html = template(context);
+          //   $('#movie-list').append(html);
+          // } // For loop
           
         },
         'error': function() {
@@ -93,10 +96,32 @@ $(document).ready(function () {
     } else {
       alert('Spiacenti, non è possibile effettuare la ricerca. Devi digitare almeno 2 caratteri');
     }    
-  } // fun printMovies
+  } // fun getMovies
   
   
   
+
+
+  function printMovies(arrayMovies) {
+    // creo ciclo For per stampare tutti i film in array
+    for (var i = 0; i < arrayMovies.length; i++) {
+      var singleMovie = arrayMovies[i];
+
+      // recupero info film e inserisco in html (stampo con handlebars)
+      var context = {
+        'titolo': singleMovie.title,
+        'titolo-originale': singleMovie.original_title,
+        'lingua-originale': singleMovie.original_language,
+        'voto': singleMovie.vote_average,
+      };
+
+      // appendo elemento in html 
+      var source = $('#movie-template').html();
+      var template = Handlebars.compile(source);
+      var html = template(context);
+      $('#movie-list').append(html);
+    } // For loop
+  }
   
   
   
