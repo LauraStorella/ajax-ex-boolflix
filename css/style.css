@@ -1,34 +1,11 @@
-/* DEBUGG - start rules*/
-/* debug {}
-  .debug .container {
-    background-color: #16D893;
-    border: 1px solid blue;
-  }
-  .debug [class*="col-"] {
-    background-color: yellow;
-    border: 1px solid red;
-    height: 100px;
-  } */
-/* DEBUGG - end rules */
+.cards-container {
+  width: 300px;
+}
 
-/* PALETTE */
-/* body {
-  background-color: #272a2f;
-  background-color: #333941;
-  background-color: #3f4752;
-  background-color: #7c7d82;
-  background-color: #4d5967;
-  background-color: #c7cacf;
-  background-color: #7bc876;
-  background-color: #6ba569;
-  background-color: #5d8864;
-  background-color: #07aaf5;
-  background-color: #2c4d60;
-  background-color: #d4d4d5;
-  background-color: #35363b;
-  background-color: #27292e;
-} */
 
+
+
+/* ----------------- CSS General Style Rules ----------------- */
 /* GENERAL RULES (reset) - start */
 general rules {}
   * {

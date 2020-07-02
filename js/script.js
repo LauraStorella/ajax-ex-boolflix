@@ -11,7 +11,9 @@ $(document).ready(function () {
 var myApiKey = '93ff06dbd828057f991c11587fba6244';
 var urlMovie = 'https://api.themoviedb.org/3/search/movie';
 var urlSeries = 'https://api.themoviedb.org/3/search/tv';
-
+var fixedCoverPath = 'https://image.tmdb.org/t/p/';
+var sizeCoverPath = 'w1280';
+var imgNotAvailable = 'no-img-cover.jpg';
 
 
 
@@ -53,6 +55,7 @@ function getMovies(userText) {
 
     // elimino schede film sulla pagina HTML
     $('.movie-item').remove();
+    $('.cover-img').remove();
 
     // Ricerca Film : faccio partire la chiamata ajax per cercare i film
     $.ajax({
@@ -84,7 +87,7 @@ function getMovies(userText) {
         //   };
   
         //   // appendo elemento in html 
-        //   var source = $('#movie-template').html();
+        //   var source = $('#cards-container-template').html();
         //   var template = Handlebars.compile(source);
         //   var html = template(context);
         //   $('#movie-list').append(html);
@@ -141,10 +144,9 @@ function printMovies(arrayMovies) {
       'lingua-originale': singleMovie.original_language,
       'voto': giveStars( singleMovie.vote_average),
       // 'voto': singleMovie.vote_average, // debug (stampa voto in numero)
-      'categoria': categoria,
-
+      'cover-link': createCover(singleMovie.poster_path),
     };
-    console.log(context);
+    // console.log(context);
     // console.log(singleMovie.vote_average);
     // console.log(giveStars( singleMovie.vote_average));
     
@@ -153,7 +155,7 @@ function printMovies(arrayMovies) {
     
 
     // appendo elemento in html 
-    var source = $('#movie-template').html();
+    var source = $('#cards-container-template').html();
     var template = Handlebars.compile(source);
     var html = template(context);
     $('#movie-list').append(html);
@@ -217,21 +219,44 @@ function giveStars(voto) {
 
 
 
-function getCategory(params) {
-  // DESCRIZIONE : 
-  // stabilisce se risultato della ricerca appartiene alla categoria film o serieTV, così da poter visualizzare il risultato corretto
+// function getCategory(params) {
+//   // DESCRIZIONE : 
+//   // stabilisce se risultato della ricerca appartiene alla categoria film o serieTV, così da poter visualizzare il risultato corretto
   
-  // verifico se la ricerca è film o serieTV
-  if (tipologia == 'film') {
-    // se film : leggo title e original_title
-    var resultTitle = singleMovie.title;
-    var resultOriginalTitle = singleMovie.original_title;
+//   // verifico se la ricerca è film o serieTV
+//   if (tipologia == 'film') {
+//     // se film : leggo title e original_title
+//     var resultTitle = singleMovie.title;
+//     var resultOriginalTitle = singleMovie.original_title;
+//   } 
+//   else {
+//     // se serieTV : leggo name e original_name
+//     var resultTitle = dati.name;
+//     var resultOriginalTitle = dati.original_name;
+//   }
+// }
+
+
+
+
+function createCover(coverLink) {
+  // DESCRIZIONE:
+  // crea il path completo per inserire cover film/serie tv
+
+  // url dell' <img> richiesta tramite API
+  //  ---> se cover non disponibile, uso <img> di default
+  //  ---> se <img> disponibile, compongo il path con urlfissa + pathsize + pathvariable
+
+  var imgUrlVariable = coverLink; 
+  var fullCoverPath = "";
+
+  if (imgUrlVariable == "") {    
+    fullCoverPath = imgNotAvailable;
   } 
   else {
-    // se serieTV : leggo name e original_name
-    var resultTitle = dati.name;
-    var resultOriginalTitle = dati.original_name;
+    fullCoverPath = fixedCoverPath + sizeCoverPath + imgUrlVariable;
   }
+  return fullCoverPath;
 }
 
 

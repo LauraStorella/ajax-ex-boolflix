@@ -31,10 +31,13 @@
 
 
       <!-- Lista film - inizio -->
-      <ul id="movie-list">
-        <li class="movie-item">
-        </li>
-      </ul>
+      <div class="cards-container">
+        <ul id="movie-list">
+          <li class="movie-item">
+          </li>
+        </ul>
+      </div>
+      
       <!-- Lista film - fine -->
 
     </div>
@@ -42,7 +45,8 @@
 
 
     <!-- Handlebars Template -->
-    <script id="movie-template" type="text/x-handlebars-template">
+    <script id="cards-container-template" type="text/x-handlebars-template">
+      <img class="cover-img" src="{{ cover-link }}" alt="">
       <li class="movie-item">
         <h3>Titolo: </h3><span>{{ titolo }}</span>
         <h3>Titolo Originale: </h3><span>{{ titolo-originale }}</span>
