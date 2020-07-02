@@ -141,9 +141,14 @@ function printMovies(arrayMovies) {
       'lingua-originale': singleMovie.original_language,
       'voto': giveStars( singleMovie.vote_average),
       // 'voto': singleMovie.vote_average, // debug (stampa voto in numero)
+      'categoria': categoria,
+
     };
+    console.log(context);
     // console.log(singleMovie.vote_average);
     // console.log(giveStars( singleMovie.vote_average));
+    
+
     
     
 
@@ -187,28 +192,47 @@ function giveStars(voto) {
 
 
 
-function printFlag(lingua) {
+// function printFlag(lingua) {
+//   // DESCRIZIONE : 
+//   // stampa a schermo <img> bandiera in base alla lingua originale del film
+
+//   // Creo var per inserire valore di ritorno della fun
+//   //  ---> se bandiera disponibile, aggiungo <img> (visualizzo img tramite attr src)
+//   //  ---> se bandiera non disponibile, lascio formato testo
+//   //  ---> considero lingue principali: it, en, fr, es, de (array lingue con flag disponibile)
+
+//   // Creo array con la sigla delle lingue per le quali è disponibile la flag
+//   var arrayFlags = ['it', 'en', 'fr', 'es', 'de']
+
+//   var flagOrText; 
+
+//   if (flag disponibile) {
+//     // aggiungo <img> tramite src 
+//   } 
+//   else {    
+//     // lascio formato testo
+//   }
+//   return flagOrText;
+// } // end fun printFlag
+
+
+
+function getCategory(params) {
   // DESCRIZIONE : 
-  // stampa a schermo <img> bandiera in base alla lingua originale del film
-
-  // Creo var per inserire valore di ritorno della fun
-  //  ---> se bandiera disponibile, aggiungo <img> (visualizzo img tramite attr src)
-  //  ---> se bandiera non disponibile, lascio formato testo
-  //  ---> considero lingue principali: it, en, fr, es, de
-
-  var flagOrText; 
-
-  if (flag disponibile) {
-    // aggiungo <img> tramite src 
+  // stabilisce se risultato della ricerca appartiene alla categoria film o serieTV, così da poter visualizzare il risultato corretto
+  
+  // verifico se la ricerca è film o serieTV
+  if (tipologia == 'film') {
+    // se film : leggo title e original_title
+    var resultTitle = singleMovie.title;
+    var resultOriginalTitle = singleMovie.original_title;
   } 
-  else {    
-    // lascio formato testo
+  else {
+    // se serieTV : leggo name e original_name
+    var resultTitle = dati.name;
+    var resultOriginalTitle = dati.original_name;
   }
-  return flagOrText;
-} // end fun printFlag
-
-
-
+}
 
 
 
