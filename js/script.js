@@ -139,9 +139,10 @@ function printMovies(arrayMovies) {
       'titolo': singleMovie.title,
       'titolo-originale': singleMovie.original_title,
       'lingua-originale': singleMovie.original_language,
+      'voto': singleMovie.vote_average, // debug
       'voto': giveStars( singleMovie.vote_average / 2 ),
     };
-    console.log(context);
+    console.log(singleMovie.vote_average);
     console.log(giveStars( singleMovie.vote_average / 2 ));
     
     
@@ -163,25 +164,25 @@ function giveStars(voto) {
   // lo converte in un numero intero da 1 a 5,
   // stampa a schermo un numero di stelle piene da 1 a 5, lasciando le restanti vuote (arrotonda per eccesso a unità successiva).
 
+  // Converto il voto decimale in numero intero da 1 a 5
+  //  ---> il num intero corrisponde al n° di stelle piene da stampare (è il counter che mi servirà nel ciclo For)
+  var starsCounter = Math.round( voto / 2 );
   // Creo var per icone stelle corrispondenti al voto del film
   var stars = '';
   var fullStar = '<i class="fas fa-star"></i>';
   var emptyStar = '<i class="far fa-star"></i>';
 
-  // Converto il voto decimale in numero intero da 1 a 5
-  //  ---> il num intero corrisponde al n° di stelle piene da stampare (è il counter che mi servirà nel ciclo For)
-  var starsCounter = Math.floor( voto / 2 );
-
   for (var i = 0; i < 5; i++) {
     if (starsCounter > 0) {
       stars += fullStar; // aggiungo stella piena 
+      starsCounter--;
     }
     else {
       stars += emptyStar; // aggiungo stella vuota
     }      
   } // end for loop
 
-  return stars
+  return stars;
 } // end fun rateStars
 
 
