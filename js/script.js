@@ -16,7 +16,6 @@ var sizeCoverPath = 'w1280';
 var imgNotAvailable = 'no-img-cover.jpg';
 
 
-
 // Lancio chiamata ajax per effettuare la ricerca titoli
 //  ---> utente immette stringa nella searchbar (.search-inputbox)
 //  ---> intercetto click su tasto invio (.search-btn)
@@ -141,7 +140,8 @@ function printMovies(arrayMovies) {
     var context = {
       'titolo': singleMovie.title,
       'titolo-originale': singleMovie.original_title,
-      'lingua-originale': singleMovie.original_language,
+      // 'lingua-originale': singleMovie.original_language,
+      'lingua-originale': printFlag(langFlag),
       'voto': giveStars( singleMovie.vote_average),
       // 'voto': singleMovie.vote_average, // debug (stampa voto in numero)
       'cover-link': createCover(singleMovie.poster_path),
@@ -149,6 +149,10 @@ function printMovies(arrayMovies) {
     // console.log(context);
     // console.log(singleMovie.vote_average);
     // console.log(giveStars( singleMovie.vote_average));
+    
+    // Salvo la lingua del film in una variabile
+    var langFlag = singleMovie.original_language;
+    console.log(langFlag);
     
 
     
@@ -194,28 +198,38 @@ function giveStars(voto) {
 
 
 
-// function printFlag(lingua) {
-//   // DESCRIZIONE : 
-//   // stampa a schermo <img> bandiera in base alla lingua originale del film
+function printFlag(langFlag) {
+  // DESCRIZIONE : 
+  // stampa a schermo <img> bandiera in base alla lingua originale del film
 
-//   // Creo var per inserire valore di ritorno della fun
-//   //  ---> se bandiera disponibile, aggiungo <img> (visualizzo img tramite attr src)
-//   //  ---> se bandiera non disponibile, lascio formato testo
-//   //  ---> considero lingue principali: it, en, fr, es, de (array lingue con flag disponibile)
+  // Creo var per inserire valore di ritorno della fun
+  //  ---> se bandiera disponibile, aggiungo <img> (visualizzo img tramite attr src)
+  //  ---> se bandiera non disponibile, lascio formato testo
+  //  ---> considero lingue principali: it, en, fr, es, de 
 
-//   // Creo array con la sigla delle lingue per le quali è disponibile la flag
-//   var arrayFlags = ['it', 'en', 'fr', 'es', 'de']
+  var flag = '';
 
-//   var flagOrText; 
-
-//   if (flag disponibile) {
-//     // aggiungo <img> tramite src 
-//   } 
-//   else {    
-//     // lascio formato testo
-//   }
-//   return flagOrText;
-// } // end fun printFlag
+  switch (langFlag) {
+    case "it":
+      flag = '<img class="flag-img" src="img/it-flag.png" alt="it-flag">'
+      break;
+    case "en":
+      flag = '<img class="flag-img" src="img/en-flag.png" alt="en-flag">';
+      break;
+    case "fr":
+      flag = '<img class="flag-img" src="img/fr-flag.png" alt="fr-flag">';
+      break;
+    case "de":
+      flag = '<img class="flag-img" src="img/de-flag.png" alt="de-flag">';
+      break;
+    case "es":
+      flag = '<img class="flag-img" src="img/es-flag.png" alt="es.flag">';
+      break;
+    default:
+      flag = 'No flag available';
+  } // end switch
+  return flag;
+} // end fun printFlag
 
 
 
@@ -237,7 +251,7 @@ function giveStars(voto) {
 // }
 
 
-
+// -------------------- Milestone #3 --------------------
 
 function createCover(coverLink) {
   // DESCRIZIONE:
@@ -257,7 +271,7 @@ function createCover(coverLink) {
     fullCoverPath = fixedCoverPath + sizeCoverPath + imgUrlVariable;
   }
   return fullCoverPath;
-}
+} // end fun createCover
 
 
 
