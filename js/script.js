@@ -111,7 +111,7 @@ function getMovies(userText) {
       'success': function(data) {
         var results = data. results;
         console.log(results);
-        printMovies(data.results);
+        printTvSeries(data.results);
 
       },
       'error': function() {
@@ -165,6 +165,46 @@ function printMovies(arrayMovies) {
     $('#movie-list').append(html);
   } // For loop
 } // end fun printMovies
+
+
+
+function printTvSeries(arrayTvSeries) {
+  // DESCRIZIONE : 
+  // prende elementi della ricerca (array di objects = serieTV) e li stampa in html
+
+  // creo ciclo For per stampare tutti i film in array
+  for (var i = 0; i < arrayTvSeries.length; i++) {
+    var singleTvSeries = arrayTvSeries[i];
+
+    // recupero info serieTV e inserisco in html (stampo con handlebars)
+    var context = {
+      'titolo': singleTvSeries.name,
+      'titolo-originale': singleTvSeries.original_name,
+      // 'lingua-originale': singleTvSeries.original_language,
+      'lingua-originale': printFlag(langFlag),
+      'voto': giveStars( singleTvSeries.vote_average),
+      // 'voto': singleTvSeries.vote_average, // debug (stampa voto in numero)
+      'cover-link': createCover(singleTvSeries.poster_path),
+    };
+    // console.log(context);
+    // console.log(singleTvSeries.vote_average);
+    // console.log(giveStars( singleTvSeries.vote_average));
+    
+    // Salvo la lingua del film in una variabile
+    var langFlag = singleTvSeries.original_language;
+    console.log(langFlag);
+    
+
+    
+    
+
+    // appendo elemento in html 
+    var source = $('#cards-container-template').html();
+    var template = Handlebars.compile(source);
+    var html = template(context);
+    $('#movie-list').append(html);
+  } // For loop
+} // end fun seriesTV
 
 
 // -------------------- Milestone #2 --------------------
