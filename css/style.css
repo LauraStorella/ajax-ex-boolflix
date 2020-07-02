@@ -1,7 +1,9 @@
-.cards-container {
-  width: 300px;
+.cover-img {
+  width: 200px;
 }
-
+.title {
+  font-weight: bold;
+}
 .flag-img {
   width: 30px;
   height: 30px;
@@ -56,7 +58,7 @@ class_properties {}
     padding-left: 0;
     }
     ul.list-unstyled li {
-      display: inline-block;
+      /* display: inline-block; */
       list-style: none;
     }
     ul.list-unstyled li a {

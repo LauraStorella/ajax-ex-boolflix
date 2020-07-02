@@ -162,7 +162,7 @@ function printMovies(arrayMovies) {
     var source = $('#cards-container-template').html();
     var template = Handlebars.compile(source);
     var html = template(context);
-    $('#movie-list').append(html);
+    $('#cards-container').append(html);
   } // For loop
 } // end fun printMovies
 
@@ -202,7 +202,7 @@ function printTvSeries(arrayTvSeries) {
     var source = $('#cards-container-template').html();
     var template = Handlebars.compile(source);
     var html = template(context);
-    $('#movie-list').append(html);
+    $('#cards-container').append(html);
   } // For loop
 } // end fun seriesTV
 
