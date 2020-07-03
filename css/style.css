@@ -68,7 +68,7 @@ nav .logo {
 /* ----------- MAIN ----------- */
 main {
   width: 100%;
-  padding-top: 170px;
+  padding-top: 200px;
   /* height: 1125px; */
   background-color: #3b3b3b;
   /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bg-boolflix.jpg');  */
@@ -81,7 +81,7 @@ main {
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  background-color: turquoise;  /* debug */
+  background-color: #3b3b3b;
 }
 
 .card {
@@ -89,6 +89,9 @@ main {
   height: 325px;
   margin-bottom: 15px;
   position: relative;
+}
+.card i {
+  color: goldenrod;
 }
 
 .cover-img {
@@ -104,8 +107,9 @@ main {
   left: 0px;
   font-size: 14px;
   padding: 10px;
-  background-color: #333e49;
   overflow-y: auto;
+  visibility: hidden;
+  opacity: 0;
 }
 #card-info li {
   padding-top: 10px;
@@ -118,45 +122,17 @@ main {
   font-weight: bold;
   color: #e50914;
 }
+.card:hover #card-info {
+  visibility: visible;
+  opacity: 1;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
 .flag-img {
   width: 30px;
   height: 30px;
+  vertical-align: middle;
 } 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

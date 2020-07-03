@@ -66,7 +66,7 @@ function getMovies(userText) {
           'language': 'it-IT'
       },
       'success': function(data) {
-        var results = data. results;
+        var results = data.results;
         // console.log(results);
         printMovies(data.results);
 
@@ -109,7 +109,7 @@ function getMovies(userText) {
           'language': 'it-IT'
       },
       'success': function(data) {
-        var results = data. results;
+        var results = data.results;
         // console.log(results);
         printTvSeries(data.results);
 
