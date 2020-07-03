@@ -19,30 +19,35 @@
     <!-- Wrapper app Boolflix - inizio -->
     <div class="main-wrapper">
 
-      <h1>BOOLFLIX</h1>
+      <header>
+        <nav>
+          <h1>BOOLFLIX</h1>
+
+          <!-- Searchbar - inizio -->
+          <div class="search-bar">               
+            <input class="search-inputbox" id="search-text" type="text" placeholder="Search...">
+            <button class="search-btn">Cerca</button>                                                   
+          </div>
+          <!-- Searchbar - fine -->
+        </nav>
+      </header>
 
 
-      <!-- Searchbar - inizio -->
-      <div class="search-bar">               
-        <input class="search-inputbox" id="search-text" type="text" placeholder="Search...">
-        <button class="search-btn">Cerca</button>                                                   
-      </div>
-      <!-- Searchbar - fine -->
-
-
-      <!-- Lista film - inizio -->
-      <div id="cards-container">
-        <div class="card">
-          <ul id="card-info" class="list-unstyled">
-            <img class="cover-img" src="img/cover-test.jpg" alt="">
-            <li><span class="title">Titolo: </span><span>{{ titolo }}</span></li>
-            <li><span class="title">Titolo Originale: </span><span>{{ titolo-originale }}</span></li>
-            <li><span class="title">Lingua: </span><span>{{{ lingua-originale }}}</span></li>
-            <li><span class="title">Voto: </span><i>{{{ voto }}}</i></li>
-          </ul>
+      <main>
+        <!-- Lista film - inizio -->
+        <div id="cards-container">
+          <div class="card">
+            <ul id="card-info" class="list-unstyled">
+              <img class="cover-img" src="img/cover-test.jpg" alt="">
+              <li><span class="title">Titolo: </span><span>{{ titolo }}</span></li>
+              <li><span class="title">Titolo Originale: </span><span>{{ titolo-originale }}</span></li>
+              <li><span class="title">Lingua: </span><span>{{{ lingua-originale }}}</span></li>
+              <li><span class="title">Voto: </span><i>{{{ voto }}}</i></li>
+            </ul>
+          </div>
         </div>
-      </div>
-      <!-- Lista film - fine -->
+        <!-- Lista film - fine -->
+      </main>
 
     </div>
     <!-- Wrapper app Boolflix - fine -->

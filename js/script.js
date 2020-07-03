@@ -53,7 +53,7 @@ function getMovies(userText) {
     $('#search-text').val('');
 
     // elimino schede film sulla pagina HTML
-    $('.movie-item').remove();
+    $('.card').remove();
     $('.cover-img').remove();
 
     // Ricerca Film : faccio partire la chiamata ajax per cercare i film
