@@ -13,7 +13,7 @@ var urlMovie = 'https://api.themoviedb.org/3/search/movie';
 var urlSeries = 'https://api.themoviedb.org/3/search/tv';
 var fixedCoverPath = 'https://image.tmdb.org/t/p/';
 var sizeCoverPath = 'w1280';
-var imgNotAvailable = 'no-img-cover.jpg';
+var imgNotAvailable = 'img/no-img-cover.jpg';
 
 
 // Lancio chiamata ajax per effettuare la ricerca titoli
@@ -43,7 +43,7 @@ function getMovies(userText) {
 
   // leggo il testo inserito dall'utente nella searchbar
   var userText = $('#search-text').val().trim().toLowerCase();
-  console.log(userText);
+  // console.log(userText);
 
   // Verifico che l'utente abbia immesso un dato > 1 per avviare la ricerca
   //  ---> se dato > 1, resetto campo per nuova ricerca e faccio chiamata ajax
@@ -54,7 +54,7 @@ function getMovies(userText) {
 
     // elimino schede film sulla pagina HTML
     $('.card').remove();
-    $('.cover-img').remove();
+    // $('.cover-img').remove();
 
     // Ricerca Film : faccio partire la chiamata ajax per cercare i film
     $.ajax({
@@ -67,7 +67,7 @@ function getMovies(userText) {
       },
       'success': function(data) {
         var results = data. results;
-        console.log(results);
+        // console.log(results);
         printMovies(data.results);
 
 
@@ -89,7 +89,7 @@ function getMovies(userText) {
         //   var source = $('#cards-container-template').html();
         //   var template = Handlebars.compile(source);
         //   var html = template(context);
-        //   $('#movie-list').append(html);
+        //   $('#cards-container').append(html);
         // } // For loop
         
       },
@@ -110,7 +110,7 @@ function getMovies(userText) {
       },
       'success': function(data) {
         var results = data. results;
-        console.log(results);
+        // console.log(results);
         printTvSeries(data.results);
 
       },
@@ -145,14 +145,17 @@ function printMovies(arrayMovies) {
       'voto': giveStars( singleMovie.vote_average),
       // 'voto': singleMovie.vote_average, // debug (stampa voto in numero)
       'cover-link': createCover(singleMovie.poster_path),
+      'trama': singleMovie.overview,
     };
     // console.log(context);
     // console.log(singleMovie.vote_average);
     // console.log(giveStars( singleMovie.vote_average));
+    console.log(singleMovie.overview);
+    
     
     // Salvo la lingua del film in una variabile
     var langFlag = singleMovie.original_language;
-    console.log(langFlag);
+    // console.log(langFlag);
     
 
     
@@ -185,6 +188,7 @@ function printTvSeries(arrayTvSeries) {
       'voto': giveStars( singleTvSeries.vote_average),
       // 'voto': singleTvSeries.vote_average, // debug (stampa voto in numero)
       'cover-link': createCover(singleTvSeries.poster_path),
+      'trama': singleTvSeries.overview,
     };
     // console.log(context);
     // console.log(singleTvSeries.vote_average);
@@ -192,7 +196,7 @@ function printTvSeries(arrayTvSeries) {
     
     // Salvo la lingua del film in una variabile
     var langFlag = singleTvSeries.original_language;
-    console.log(langFlag);
+    // console.log(langFlag);
     
 
     
@@ -217,7 +221,7 @@ function giveStars(voto) {
 
   // Converto il voto decimale in numero intero da 1 a 5
   //  ---> il num intero corrisponde al n° di stelle piene da stampare (è il counter che mi servirà nel ciclo For)
-  var starsCounter = Math.round( voto / 2 );
+  var starsCounter = Math.ceil( voto / 2 );
   // Creo var per icone stelle corrispondenti al voto del film
   var stars = '';
   var fullStar = '<i class="fas fa-star"></i>';
@@ -232,7 +236,6 @@ function giveStars(voto) {
       stars += emptyStar; // aggiungo stella vuota
     }      
   } // end for loop
-
   return stars;
 } // end fun rateStars
 
@@ -304,7 +307,7 @@ function createCover(coverLink) {
   var imgUrlVariable = coverLink; 
   var fullCoverPath = "";
 
-  if (imgUrlVariable == "") {    
+  if (imgUrlVariable === null) {    
     fullCoverPath = imgNotAvailable;
   } 
   else {
@@ -312,8 +315,6 @@ function createCover(coverLink) {
   }
   return fullCoverPath;
 } // end fun createCover
-
-
 
 
 

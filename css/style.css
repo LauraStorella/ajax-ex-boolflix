@@ -1,4 +1,156 @@
+/* --------------- Milestone #4 --------------- */
+
+/* ----------- LAYOUT ----------- */
+/* Main wrapper */
+.main-wrapper {
+  width: 100%;
+}
+
+
+/* ----------- HEADER ----------- */
+/* Header */
+header {
+  width: 100%;
+}
+/* Navbar */
+nav {
+  width: 100%;
+  height: 150px;
+  margin: auto;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black; 
+  z-index: 1;
+}
+
+
+/* Logo */
+nav .logo {
+  width: 300px;
+}
+
+
+/* Searchbar */
+.search-bar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: white;
+}
+.search-inputbox {
+  height: 100%;
+  width: 300px;
+  border: 0;
+  padding: 10px;
+  font-size: 17px;
+}
+.search-btn {
+  height: 100%;
+  width: 85px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  background-color: #e50914;
+}
+.search-btn:hover {
+  cursor: pointer;
+}
+
+
+/* ----------- MAIN ----------- */
+main {
+  width: 100%;
+  padding-top: 170px;
+  /* height: 1125px; */
+  background-color: #3b3b3b;
+  /* background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bg-boolflix.jpg');  */
+}
+
+#cards-container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: turquoise;  /* debug */
+}
+
+.card {
+  width: 220px;
+  height: 325px;
+  margin-bottom: 15px;
+  position: relative;
+}
+
 .cover-img {
+  width: 100%;
+  height: 100%;
+}
+
+#card-info {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.flag-img {
+  width: 30px;
+  height: 30px;
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --------------- Milestone #1 - Layout Base --------------- */
+/* .cover-img {
   width: 200px;
 }
 .title {
@@ -7,7 +159,7 @@
 .flag-img {
   width: 30px;
   height: 30px;
-}
+} */
 
 
 
@@ -65,44 +217,6 @@ class_properties {}
       text-decoration: none;
     }
 /* CLASS PROPERTIES - end rules */
-
-
-
-/* BASE LAYOUT - inizio */
-regole layout {}
-/* BASE LAYOUT - fine */
-
-
-
-/* COMPONENTS (reusable) - start rules */
-components {}
-  components
-/* COMPONENTS (reusable) - end rules */
-
-
-
-/* NAVBAR - start rules */
-nav {}
-  nav {}
-/* NAVBAR - end rules */
-
-
-/* HEADER - start rules */
-header {}
-  header {}
-/* HEADER - end rules */
-
-
-/* MAIN - start rules */
-main {}
-  main {}
-/* MAIN - end rules */
-
-
-/* FOOTER - start rules */
-footer {}
-  footer {}
-/* FOOTER - end rules */
 
 
 
