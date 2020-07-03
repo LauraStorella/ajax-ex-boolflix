@@ -145,7 +145,7 @@ function printMovies(arrayMovies) {
       'voto': giveStars( singleMovie.vote_average),
       // 'voto': singleMovie.vote_average, // debug (stampa voto in numero)
       'cover-link': createCover(singleMovie.poster_path),
-      'trama': singleMovie.overview,
+      'trama': getPlot(singleMovie.overview),
     };
     // console.log(context);
     // console.log(singleMovie.vote_average);
@@ -188,7 +188,7 @@ function printTvSeries(arrayTvSeries) {
       'voto': giveStars( singleTvSeries.vote_average),
       // 'voto': singleTvSeries.vote_average, // debug (stampa voto in numero)
       'cover-link': createCover(singleTvSeries.poster_path),
-      'trama': singleTvSeries.overview,
+      'trama': getPlot(singleTvSeries.overview),
     };
     // console.log(context);
     // console.log(singleTvSeries.vote_average);
@@ -318,6 +318,20 @@ function createCover(coverLink) {
 
 
 
+function getPlot(text) {
+  // DESCRIZIONE:
+  // legge e visualizza valore "overview" (trama film/serieTV)
+  // se overview non è presente, ritorna "non disponibile"
+
+  var plotText; // overview da inserire in pagina
+
+  if (text == "" || text == null) {
+    plotText = 'non disponibile';
+  } else {
+    plotText = text;
+  }
+  return plotText;
+}
 
 
 

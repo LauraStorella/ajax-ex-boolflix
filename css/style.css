@@ -102,8 +102,22 @@ main {
   position: absolute;
   top: 0px;
   left: 0px;
+  font-size: 14px;
+  padding: 10px;
+  background-color: #333e49;
+  overflow-y: auto;
 }
-
+#card-info li {
+  padding-top: 10px;
+  color: whitesmoke;
+}
+#card-info .title {
+  font-weight: bold;
+}
+#card-info .main-title {
+  font-weight: bold;
+  color: #e50914;
+}
 .flag-img {
   width: 30px;
   height: 30px;
