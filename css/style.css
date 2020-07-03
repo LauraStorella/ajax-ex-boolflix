@@ -69,15 +69,12 @@ nav .logo {
 main {
   width: 100%;
   margin-top: 150px;
-  /* height: 1125px; */
-  /* background-color: #3b3b3b; */
-  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bg-boolflix.jpg'); 
 }
 .main-container {
   width: 100%;
-  padding-top: 20px;
-  background-color: #3b3b3b;
+  /* background-color: #3b3b3b; */
   min-height: calc(100vh - 150px);
+  background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/bg-boolflix.jpg'); 
 }
 
 #cards-container {
