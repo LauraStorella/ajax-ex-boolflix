@@ -80,11 +80,11 @@ main {
 #cards-container {
   width: 80%;
   margin: 0 auto;
+  padding-top: 20px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  background-color: #3b3b3b;
 }
 
 .card {
